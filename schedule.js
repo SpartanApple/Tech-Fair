@@ -33,6 +33,10 @@ function stringifyTime(time) {
 	}
 
 	const meridian = hours >= 12 ? "PM" : "AM";
+	if (hours > 12) {
+		hours -= 12;
+	}
+
 	return `${hours}:${mins.toString().padStart(2, '0')}\u{00A0}${meridian}`;
 }
 
