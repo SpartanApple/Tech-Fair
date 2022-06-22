@@ -1,0 +1,133 @@
+/* This spreadsheet is for the layout of schedule iframe. */
+
+.schedule-container {
+	width: 100%;
+	min-height: 100%;
+
+	/* Variables. */
+	--slot-height: 40px;
+
+	/* Use a flexbox layout. */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+/* A column in the schedule. */
+schedule-day,
+schedule-legend {
+	min-height: 300px;
+	min-width: 80px;
+
+	flex-grow: 1;
+	position: relative;
+}
+
+schedule-day {
+	min-width: 120px;
+	flex-grow: 2;
+}
+
+.schedule-day-container {
+	position: relative;
+}
+
+/* The "legend" column in a schedule. */
+schedule-legend {
+	flex-shrink: 10;
+	flex-grow: unset;
+}
+
+.schedule-day-container.legend {
+	word-break: keep-all;
+	word-wrap: normal;
+	/* Override the legend to be as small as possible. */
+}
+
+schedule-day-events {
+	position: absolute;
+	top: 1px;
+	left: 0;
+	right: 1px;
+	bottom: 0;
+}
+
+/* Day Display */
+schedule-day-date {
+	text-align: center;
+}
+
+schedule-day-date .schedule-day-of-week {
+
+}
+
+schedule-day-date .schedule-day-of-month {
+	font-weight: bold;
+}
+
+/* Ticks to divide the time slots in a day. */
+schedule-day-ticks {
+	z-index: 0;
+}
+
+schedule-day-ticks > div {
+	box-sizing: border-box;
+	height: var(--slot-height);
+
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+
+	border-right-width: 1px;
+	border-right-style: solid;
+
+	display: flex;
+	justify-content: right;
+	align-items: start;
+
+	padding: 0.2rem;
+	padding-top: 0.05rem;
+}
+
+schedule-day-ticks.legend > div {
+	/* Override to hide the top border for the legend column. */
+	border-top-color: transparent !important;
+}
+
+schedule-day-ticks:not(.legend) > div {
+	/* Hide the time info from non-legend columns. */
+	user-select: none;
+	color: transparent;
+}
+
+schedule-day-ticks > div:first-child {
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+schedule-day-events {
+	z-index: 1;
+}
+
+schedule-event {
+	--margin: 0.4rem;
+
+	box-sizing: border-box;
+	position: absolute;
+	display: block;
+	z-index: var(--priority);
+
+	border-style: solid;
+	border-width: 1px;
+
+	/* Height of the event (the "duration") */
+	height: calc(var(--slot-height) * var(--slots) - 1px - (2 * var(--margin)));
+
+	/* Offset of the event (the "start") */
+	top: calc(var(--slot-height) * var(--offset) - 1px);
+	left: 0;
+	right: 0;
+
+	margin: var(--margin);
+	margin-left: calc(var(--margin) * (var(--depth) + 1));
+	padding: 0.4rem;
+}

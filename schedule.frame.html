@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="schedule.css"/>
+	<title>(Frame) Schedule</title>
+	<script src="schedule.js" defer></script>
+	<style>html, body { width: 100%; min-height: 100%; }</style>
+</head>
+<body id="schedule">
+<schedule-container slot-length="00:15" slot-start="09:00" slots="30">
+	<schedule-day slot="day" date="2022-06-26">
+		<schedule-event slot="event" start="09:30" end="16:00">
+			Foo
+
+			Description
+		</schedule-event>
+		<schedule-event slot="event" start="10:30" end="11:15">
+			Bar
+
+			Description
+		</schedule-event>
+	</schedule-day>
+	<schedule-day slot="day" date="2022-06-27">
+		<schedule-event slot="event" start="09:30" end="16:00">
+			Foo
+
+			Description
+		</schedule-event>
+		<schedule-event slot="event" start="14:00" end="16:00">
+			Bar
+
+			Description
+		</schedule-event>
+		<schedule-event slot="event" start="14:30" end="15:15">
+			Baz
+
+			Description
+		</schedule-event>
+	</schedule-day>
+	<schedule-day slot="day" date="2022-06-28"></schedule-day>
+	<schedule-day slot="day" date="2022-06-29"></schedule-day>
+</schedule-container>
+
+
+</body>
+</html>
